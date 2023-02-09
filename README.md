@@ -7,6 +7,6 @@ The final image is rendered using Nori framework. Course assignment
 and project instructions can be viewed [here](https://cgl.ethz.ch/teaching/cg22/www-nori/index.html#project).
 <br>
 <br>
-Final render of the project:
-<br>
+Final render of the project: **Man on Mars**
+<br> <br>
 ![Final Render](https://github.com/ankitaghosh9/ETH-computer-graphics-project/blob/main/images/final_scene.png)
