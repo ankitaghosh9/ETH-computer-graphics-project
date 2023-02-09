@@ -4,10 +4,10 @@ Computer graphics project done by me and my teammate [Sayan Deb Sarkar](https://
 Course](https://cgl.ethz.ch/teaching/cg22/home.php) at ETH Zurich. 
 <br>
 The final image is rendered using Nori framework. Course assignment
-and project instructions can be viewed [here](https://cgl.ethz.ch/teaching/cg22/www-nori/index.html#project). The final scene rendered 
-is shown below.
-<br>
-<br>
-Final scene: ### **Man on Mars**
+and project instructions can be viewed [here](https://cgl.ethz.ch/teaching/cg22/www-nori/index.html#project). 
+<br> <br>
+Project Report: https://ankitaghosh9.github.io/ETH-computer-graphics-project/
+<br> <br>
+Final scene: **Man on Mars**
 <br> <br>
 ![Final Render](https://github.com/ankitaghosh9/ETH-computer-graphics-project/blob/main/images/final_scene.png)
