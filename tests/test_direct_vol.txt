@@ -1,0 +1,941 @@
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum1.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum1.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum2.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum2.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum3.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum3.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum4.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum4.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum5.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum5.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum1.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum1.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum2.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum2.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum3.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum3.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum4.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum4.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/floor.obj" .. done. (V=4, F=2, took 0.0ms and 72 B)
+Loading "../scenes/pa4/tests/polylum5.obj" .. done. (V=3, F=1, took 0.0ms and 48 B)
+Constructing a SAH BVH (2 shapes, 3 primitives) .. done (took 0.0ms and 204 B, SAH cost = 3).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum5.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum1.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.089285 (reference value = 0.0898394)
+Sample variance = 0.0366711
+t-statistic = 0.915505 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.359929, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum2.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.02254 (reference value = 0.02292)
+Sample variance = 0.0107621
+t-statistic = 1.15834 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.246729, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum3.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.052665 (reference value = 0.0534198)
+Sample variance = 0.0235591
+t-statistic = 1.55508 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.119931, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum4.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.020195 (reference value = 0.0205314)
+Sample variance = 0.00968976
+t-statistic = 1.08068 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.279841, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum5.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.2604 (reference value = 0.26174)
+Sample variance = 0.0623925
+t-statistic = 1.69644 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.0898058, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum1.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.09004 (reference value = 0.0898394)
+Sample variance = 0.0369132
+t-statistic = 0.330174 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.741269, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum2.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.023185 (reference value = 0.02292)
+Sample variance = 0.0110551
+t-statistic = 0.797014 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.425445, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum3.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.053505 (reference value = 0.0534198)
+Sample variance = 0.02389
+t-statistic = 0.174317 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.861617, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum4.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.020525 (reference value = 0.0205314)
+Sample variance = 0.00984132
+t-statistic = 0.0203985 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.983726, significance level = 0.00100453)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [   1,    0,    0,    0;
+                        0,    0,   -1, 0.01;
+                        0,    1,    0,    0;
+                        0,    0,    0,    1],
+    outputSize = [1, 1],
+    fov = 0.000001,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/floor.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/tests/polylum5.obj",
+      vertexCount = 3,
+      triangleCount = 1,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.000000, 0.000000, 0.000000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 0.260985 (reference value = 0.26174)
+Sample variance = 0.06238
+t-statistic = 0.955925 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.339112, significance level = 0.00100453)
+
+Passed 10/10 tests.

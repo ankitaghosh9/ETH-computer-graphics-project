@@ -1,0 +1,83 @@
+Loading "../scenes/pa4/cbox/meshes/walls.obj" .. done. (V=12, F=6, took 0.0ms and 312 B)
+Loading "../scenes/pa4/cbox/meshes/rightwall.obj" .. done. (V=4, F=2, took 0.0ms and 104 B)
+Loading "../scenes/pa4/cbox/meshes/leftwall.obj" .. done. (V=4, F=2, took 0.0ms and 104 B)
+Loading "../scenes/pa4/cbox/meshes/light.obj" .. done. (V=4, F=2, took 0.0ms and 104 B)
+Constructing a SAH BVH (6 shapes, 14 primitives) .. done (took 0.0ms and 952 B, SAH cost = 13.5716).
+
+Configuration: Scene[
+  integrator = PathMatsIntegrator[],
+  sampler = Independent[sampleCount=512]
+  camera = PerspectiveCamera[
+    cameraToWorld = [       1,        0,        0,        0;
+                            0,   0.9996, -0.02672,   0.9198;
+                            0, -0.02672,  -0.9996,    5.412;
+                            0,        0,        0,        1],
+    outputSize = [800, 600],
+    fov = 27.785601,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/cbox/meshes/walls.obj",
+      vertexCount = 12,
+      triangleCount = 6,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.725000, 0.710000, 0.680000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/cbox/meshes/rightwall.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.161000, 0.133000, 0.427000] ]
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/cbox/meshes/leftwall.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.630000, 0.065000, 0.050000] ]
+      ],
+      emitter = null
+    ],
+    Sphere[
+      center = [-0.421400, 0.332100, -0.280000],
+      radius = 0.326300,
+      bsdf = Mirror[],
+      emitter = null
+    ],
+    Sphere[
+      center = [0.445800, 0.332100, 0.376700],
+      radius = 0.326300,
+      bsdf = Dielectric[
+        intIOR = 1.504600,
+        extIOR = 1.000277
+      ],
+      emitter = null
+    ],
+    Mesh[
+      name = "../scenes/pa4/cbox/meshes/light.obj",
+      vertexCount = 4,
+      triangleCount = 2,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [15.000000, 15.000000, 15.000000] ],
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [15.000000, 15.000000, 15.000000] ],
+    ]
+  }
+]
+
+Rendering .. done. (took 2.3m)
+Writing a 800x600 OpenEXR file to "../scenes/pa4/cbox/cbox_path_mats.exr"

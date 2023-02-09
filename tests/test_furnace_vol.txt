@@ -1,0 +1,397 @@
+Loading "../scenes/pa4/tests/furnace.obj" .. done. (V=24, F=12, took 0.0ms and 912 B)
+Constructing a SAH BVH (2 shapes, 13 primitives) .. done (took 0.0ms and 884 B, SAH cost = 10.9268).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [1.000000, 1.000000, 1.000000],
+        sigma_s = [0.000000, 0.000000, 0.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/furnace.obj" .. done. (V=24, F=12, took 0.0ms and 912 B)
+Constructing a SAH BVH (2 shapes, 13 primitives) .. done (took 0.0ms and 884 B, SAH cost = 10.9268).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.800000, 0.800000, 0.800000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/furnace.obj" .. done. (V=24, F=12, took 0.0ms and 912 B)
+Constructing a SAH BVH (2 shapes, 13 primitives) .. done (took 0.0ms and 884 B, SAH cost = 10.9268).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+Loading "../scenes/pa4/tests/furnace.obj" .. done. (V=24, F=12, took 0.0ms and 912 B)
+Constructing a SAH BVH (2 shapes, 13 primitives) .. done (took 0.0ms and 884 B, SAH cost = 10.9268).
+
+Configuration: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.800000, 0.800000, 0.800000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [1.000000, 1.000000, 1.000000],
+        sigma_s = [0.000000, 0.000000, 0.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 1.99836 (reference value = 2)
+Sample variance = 0.086546
+t-statistic = 1.7604 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.0783422, significance level = 0.00250943)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.800000, 0.800000, 0.800000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 4.99923 (reference value = 5)
+Sample variance = 8.93036
+t-statistic = 0.081258 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.935237, significance level = 0.00250943)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.500000, 0.500000, 0.500000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 2.00102 (reference value = 2)
+Sample variance = 0.0896403
+t-statistic = 1.0818 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.279344, significance level = 0.00250943)
+
+------------------------------------------------------
+Testing scene: Scene[
+  integrator = VolPathMISIntegrator[],
+  sampler = Independent[sampleCount=1]
+  camera = PerspectiveCamera[
+    cameraToWorld = [1, 0, 0, 0;
+                     0, 1, 0, 0;
+                     0, 0, 1, 0;
+                     0, 0, 0, 1],
+    outputSize = [1, 1],
+    fov = 10.000000,
+    clip = [0.000100, 10000.000000],
+    rfilter = GaussianFilter[radius=2.000000, stddev=0.500000]
+  ],
+  shapes = {
+    Mesh[
+      name = "../scenes/pa4/tests/furnace.obj",
+      vertexCount = 24,
+      triangleCount = 12,
+      bsdf = Diffuse[
+        albedo = ConstantTexture[ [0.800000, 0.800000, 0.800000] ]
+      ],
+      emitter = AreaLight[
+        radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+      ]
+    ],
+    Sphere[
+      center = [0.000000, 0.750000, 0.000000],
+      radius = 0.300000,
+      bsdf = null,
+      emitter = null
+      medium = Homogenous[
+        sigma_a = [0.000000, 0.000000, 0.000000],
+        sigma_s = [1.000000, 1.000000, 1.000000], 
+        sigma_t = [1.000000, 1.000000, 1.000000], 
+        phase function = [Isotropic], 
+      ]
+    ]
+  }
+  emitters = {
+    AreaLight[
+      radiance = ConstantTexture[ [1.000000, 1.000000, 1.000000] ],
+    ]
+  }
+]
+Generating 100000 paths.. 
+Sample mean = 4.99903 (reference value = 5)
+Sample variance = 8.93396
+t-statistic = 0.103033 (d.o.f. = 99999)
+Accepted the null hypothesis (p-value = 0.917937, significance level = 0.00250943)
+
+Passed 4/4 tests.

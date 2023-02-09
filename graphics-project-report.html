@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+
+    <title>Final Project Report </title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Project Report - Ankita Ghosh & Sayan Deb Sarkar</h1>
+</div>
+
+<div class="container contentWrapper">
+  <div class="pageContent">
+    <h2>Introduction and Motivation</h2>
+      <p >
+        'Man on Mars', a subject of discussion since ages in the scientific community and a topic of wonder for the humankind. As we carelessly burn through the
+        life resources available on Earth, we devise new ways to invade Mars and make it habital. The debate on what life on Mars will look like goes on endlessly.
+        Through our project, we attempt to present our version of this topic as we take a man, out of his place on Earth, onto the surface of Mars. 
+        <br/> <br/>
+        <div style="text-align: center;margin-left: auto; margin-right: auto; display:block">
+          <img src="images/introduction/ManOnMars.png" alt="Man on Mars" style="width: 25.5vw; min-width: 330px;"/>
+          
+          <img src="images/introduction/ManOnMarsBG.png" alt="Man on Mars" style="width: 30vw; min-width: 330px;"/>
+        </div>
+        <br/> <br/>
+        We are using the images above as our source of inspiration. These conform with the theme 'out of place' as the picture on the left depicts an astronaut
+        walking on Mars. We plan to showcase a human figure standing on a terraformed version of Mars. By taking some artistic 
+        inspiration from the image on the right, we plan to ornate the sky with various cestial bodies. Thus our final scene will look like an amalgamation of
+        the two scenes giving an undertone of an out of the world view.
+      </p>
+      <!-- <br/><br/> -->
+  </div>
+</div>
+
+<div class="container contentWrapper">
+  <div class="pageContent">
+  <h2> Ankita Ghosh </h2>
+
+    <h3> Images as Textures </h3>
+        Relevant files: <br />
+        <code>
+            lodepng.cpp <br />
+            lodepng.h <br />
+            imagetexture.cpp <br />
+        </code>
+        <br />
+        I implemented the images as texture feature using the  <code>lodepng</code> library by adding <code>lodepng.cpp</code> and <lodepng.h>
+        files which makes using PNG images very easy and lightweight.
+        I referred to the lecture [1] on texture mapping which helped me understand the concept.
+        In <code>imagetexture.cpp</code>, for a given pair of \((u,v)\) coordinates, I return the \((r,g,b)\) values present at the \((x,y)\) location of my texture map as the albedo. To ensure right albedo value is sent,
+        I scale the \((u,v)\) coordinates according to the height and width of the texture map. Additionally, I apply inverse gamma
+        correction so that the original colour of the texture is retained. Below, I show a comparison between the results obtained from
+        my texture mapping and from Mitsuba. <br /> <br />
+        <div class="twentytwenty-container">
+            <img src="images/imagetexture/imagetexturePlane.png" alt="Mine" class="img-responsive" />
+            <img src="images/imagetexture/imagetexturePlaneMitsuba.png" alt="Mitsuba" class="img-responsive" />
+        </div> <br />
+        These are the results obtained on using images as textures on different objects. <br /><br />
+        <p style="margin-left:10em">
+            <img src="images/imagetexture/imagetextureSphere.png" alt="Texture on other objects" /><br /><br />
+    
+    <h3> Normal Mapping </h3>
+      Relevant files: <br />
+      <code> normaltexture.cpp </code> <br />
+      <code> bsdf.h </code> <br />
+      <code> mesh.cpp </code> <br />
+      <code> sphere.cpp </code> <br />
+      <code> diffuse.cpp </code> <br />
+      <br />
+      Implementation of the normal mapping builds on the steps of using images as textures. It helps us add wrinkles and folds
+      to the object through texture, even when they are not present in the object geometry. I gathered knowledge about this topic
+      from the PBR [2] textbook. For doing this, we require
+      normal maps which represent the surface normals of the texture through RGB values. My <code>normaltexture.cpp</code>
+      code implements texturing mapping. I add functions in <code>bsdf.h</code> and <code>diffuse.cpp</code> which check if the
+      texture has a normal map. If present, I linearly transform the color channels of the normal map from \([0,1]\) range to
+      \([-1,1]\) range into a normal vector by multiplying with \(2 * value -1\). This computation is done in the
+      <code>setHitInformation</code> function of the <code>mesh.cpp</code> and <code>sphere.cpp</code>.
+      Below are two comparisons on the effect of normal mapping. I show the texture, the normals mapped on a plane surface and
+      the texture and normal combined. <br /><br />
+
+      <div class="twentytwenty-container">
+          <img src="images/bumpmap/normaltexturePlaneTex.png" alt="Texture" class="img-responsive" />
+          <img src="images/bumpmap/normaltexturePlaneNorm.png" alt="Normal" class="img-responsive" />
+          <img src="images/bumpmap/normaltexturePlaneBump.png" alt="Bump Mapping" class="img-responsive" />
+      </div> <br />
+
+      <div class="twentytwenty-container">
+          <img src="images/bumpmap/normaltextureSphereTex.png" alt="Texture" class="img-responsive" />
+          <img src="images/bumpmap/normaltextureSphereNorm.png" alt="Normal" class="img-responsive" />
+          <img src="images/bumpmap/normaltextureSphereBump.png" alt="Bump Mapping" class="img-responsive" />
+      </div> <br />
+    
+    <h3> Probabilistic Progressive Photon Mapping</h3>
+      Relevant files: <br />
+      <code> progressivephotonmap.cpp </code> <br />
+      <code>integrator.h</code> <br />
+      <code> render.cpp </code> <br />
+      <br />
+      The lecture slides and research paper [3] on this topic helped me understand how to implement probabilistic progressive photon mapping.
+      To implement it, I first make addition of two new functions to the
+      <code>integrator.h</code>: first, <code>getNumIters</code> so that I can access the number of iterations provided by the XML file,
+      and second <code>iteration</code>, to clear the old photon map and build a new photon map for every iteration and also update
+      the value of the radius for the new iteration according to the equation \( r_{i+1} = \sqrt{\frac{i+\alpha}{i+1}} r_i \). In the
+      <code>render.cpp</code> file, I add an outer loop over the loop of sampling. This loops gets the value of iterations it needs
+      to run from <code>getNumIters</code>. Inside this loop, before the smapling loop starts, I call the <code>iteration</code>
+      function. Since Nori does running average, we do not need to implement that step and can view the final output directly.
+      <br /><br />
+      In the renderer, I clear out the stored image block after every iteration just for visualization purposes so that we
+      can see the results obtained in each iteration. I use only 10% of the number of photons used for cbox photon mapping from 
+      Programming Assignment 4 and 32 spp.
+      These are shown below along with the value of radius at those iterations.
+      (This line is then commented out while doing the running average.)
+      <br /><br />
+
+      <div class="twentytwenty-container">
+          <img src="images/pppm/pppm1.png" alt="Iteration 1 (Radius = 0.10)" class="img-responsive" />
+          <img src="images/pppm/pppm10.png" alt="Iteration 10 (Radius = 0.078) " class="img-responsive" />
+          <img src="images/pppm/pppm100.png" alt="Iteration 100 (Radius = 0.054)" class="img-responsive" />
+          <img src="images/pppm/pppm500.png" alt="Iteration 500 (Radius = 0.041)" class="img-responsive" />
+      </div> <br />
+
+      Here I compare the results obtained by probabilistic progressive photon mapping (PP PMap) against normal
+      photon mapping (PMap) and path importance sampling (Path MIS). The PP PMap performs significantly better than
+      Path MIS. If we look closely at the edges and dielectric spheres, PP PMap performs better than PMap too.
+      <br /> <br />
+      <div class="twentytwenty-container">
+          <img src="images/pppm/cbox_path_mis.png" alt="Path MIS" class="img-responsive" />
+          <img src="images/pppm/cbox_pmap.png" alt="PMap" class="img-responsive" />
+          <img src="images/pppm/pppmfinal.png" alt="PP PMap" class="img-responsive" />
+      </div> <br />
+    <h3> Environment Map Emitter</h3>
+      Relevant files: <br />
+      <code>
+          envmap.cpp
+      </code> <br /> <br />
+
+      For implementing the environment map emitter, I follow the directions and pseudocode provided in the research paper [6].
+      First I created a function from the image map by obtaining the luminance value. The marignal density and conditional density
+      are obtained using the <code>precompute</code> functions given in the paper. The <code>sample</code> functions not only return
+      \(u,v\) coordinate values but also calculate probability density values. The probability density value are then converted to
+      one expressed in terms of solid angle on the sphere by introducing a Jacobian term. I map the \((u, v)\) sample to \((\theta, \phi) \) on the unit sphere by
+      scaling it and then calculate the direction \((x, y, z)\) using it. I also perform bilinear interpolation to improve the output of the
+      environment map. Since my environment map is attached to a sphere emitter, I do not need to handle anything additionally for <code>path_mis</code>
+      as my implementation already accounts for mesh emitters.
+      <br /> <br />
+      I validate my implementation using the same scene to compare my render against Mitsuba. In the scene, I have placed a dielectric
+      sphere, a diffuse sphere and a mirror sphere.
+      <br /><br />
+
+      <div class="twentytwenty-container">
+          <img src="images/environmentmap/envmap.png" alt="Mine" class="img-responsive" />
+          <img src="images/environmentmap/envmapMitsuba.png" alt="Mitsuba" class="img-responsive" />
+      </div> <br />
+    
+    <h3>Disney BSDF </h3>
+      Relevant files:
+      <br />
+      <code>
+          disney_BSDF.cpp <br />
+          warp.h <br />
+          warp.cpp <br />
+          warptest.cpp <br />
+      </code>
+      <br /> <br />
+
+      Disney BRDF gives a great range of flexibility which is why I took interest in implementing this feature. I referred to the
+      paper [4] and the code provided by them for understanding the topic and its implementation.
+      I implemented the subsurface, metallic,  specular, specularTint, roughness, clearcoat and clearcoatGloss parameters, omitting sheen and
+      anisotropic effects. There exist several small variants to the diffuse and specularity implementation, which comes due to 
+      artist preference as stated in the paper. To describe the specular lobes we need two variants of the Generalized-Trowbridge-Reit
+      distribution (or GTR), one for the specularity term (GTR2) and another one for the clearcoat term (GTR1). The functions to perform
+      <code>SquareToGRT1</code> and <code>SquareToGTR2</code> and their corresponding PDFs are added to the <code>warp.h</code> and
+      <code>warp.cpp</code> files. I validate these, which are shown at the end of this section, and hence make required changes to
+      <code>warptest.cpp</code>. The implementation of the Disney BSDF is done in the <code>disney_BSDF.cpp</code> file.
+      
+      
+      <br /><br />
+      Below each row varies one parameter while keeping the others constant. <br />
+      The parameters varied row-wise are as follows: <br />
+      <ol>
+          <li> Subsurface </li>
+          <li> Metallic </li>
+          <li> Specular </li>
+          <li> Specular Tint </li>
+          <li> Roughness </li>
+          <li> Clearcoat </li>
+          <li> ClearcoatGloss </li>
+      </ol>
+      <br />
+      </p>
+        <p style="margin-left:6em">
+            <strong>
+                0 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                0.2 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                0.4 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                0.6 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                0.8 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                1
+            </strong>
+
+        </p>
+
+    <p style="margin-left:0.85em">
+        <img src="images/disney/disneyBSDF/subsurface/disney_subsurface_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/subsurface/disney_subsurface_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/subsurface/disney_subsurface_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/subsurface/disney_subsurface_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/subsurface/disney_subsurface_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/subsurface/disney_subsurface_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/metallic/disney_metallic_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/metallic/disney_metallic_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/metallic/disney_metallic_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/metallic/disney_metallic_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/metallic/disney_metallic_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/metallic/disney_metallic_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/specular/disney_specular_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/specular/disney_specular_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/specular/disney_specular_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/specular/disney_specular_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/specular/disney_specular_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/specular/disney_specular_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/specularTint/disney_specularTint_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/specularTint/disney_specularTint_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/specularTint/disney_specularTint_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/specularTint/disney_specularTint_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/specularTint/disney_specularTint_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/specularTint/disney_specularTint_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/roughness/disney_roughness_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/roughness/disney_roughness_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/roughness/disney_roughness_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/roughness/disney_roughness_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/roughness/disney_roughness_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/roughness/disney_roughness_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/clearcoat/disney_clearcoat_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_0.png" width=175 height=175 alt="0" /><img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_1.png" width=175 height=175 alt="0.2" /><img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_2.png" width=175 height=175 alt="0.4" /><img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_3.png" width=175 height=175 alt="0.6" /><img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_4.png" width=175 height=175 alt="0.8" /><img src="images/disney/disneyBSDF/clearcoatGloss/disney_clearcoatGloss_5.png" width=175 height=175 alt="1.0" />
+        <br />
+        <br />
+
+        Since the visualization for subsurface and clearcoatGloss parameters are not evident in the comparison above, I have provided
+        more comparisons below to ensure that my parameters are validated sufficiently.
+        <br /> <br />
+        <div class="twentytwenty-container">
+            <img src="images/disney/Extra/wall0.png" alt="subsurface=0.0" class="img-responsive" />
+            <img src="images/disney/Extra/wsub1.png" alt="subsurface=1.0" class="img-responsive" />
+        </div>
+        <br />
+        <div class="twentytwenty-container">
+            <img src="images/disney/Extra/all0.png" alt="clearcoat=0.0, clearcoatGloss=0.0" class="img-responsive" />
+            <img src="images/disney/Extra/cc1.png" alt="clearcoat=1.0, clearcoatGloss=0.0" class="img-responsive" />
+            <img src="images/disney/Extra/cc1cg1.png" alt="clearcoat=1.0, clearcoatGloss=1.0" class="img-responsive" />
+        </div>
+        <br />
+
+        Comparing DisneyBSDF with an existing implementation is very difficult since the principled BSDF implementation has
+        differences for majority renderers. Since I have been comparing my results with Mitsuba for the project, I did the same for
+        this feature too. Upon looking closely into Mitsuba's implementation I came to realise that their implementation of
+        Principled BSDF is in such a way that it creates a certain difference in the albedo of the object. The scenes do not match
+        exactly, however, they serve as a good reference is showing that the parameters get applied in a similar fashion. I provide
+        two comparisons of applying my parameters with different values on Nori and Mitsuba.
+        <br /><br />
+        <div class="twentytwenty-container">
+            <img src="images/disney/Mitsuba/Disneycbox1.png" alt="Scene 1 (Mine)" class="img-responsive" />
+            <img src="images/disney/Mitsuba/DisneycboxMitsuba1.png" alt="Scene 1 (Mitsuba)" class="img-responsive" />
+            <img src="images/disney/Mitsuba/Disneycbox2.png" alt="Scene 2 (Mine)" class="img-responsive" />
+            <img src="images/disney/Mitsuba/DisneycboxMitsuba2.png" alt="Scene 2 (Mitsuba)" class="img-responsive" />
+        </div> <br />
+        <br />
+    </p>
+
+    Further, I have also validated the implementation of my GTR1 and GTR2 functions throught warpTest and provided
+    the warp visualization and chi2test results of both when \( \alpha=0.3\) and \( \alpha=0.8\).
+        <br /><br />
+    <div class="twentytwenty-container">
+        <img src="images/disney/Disney-Warptest/GTR1_Vis_03.png" alt="GTR1 (alpha=0.3)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR1_PDF_03.png" alt="GTR1 (alpha=0.3)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR1_Vis_08.png" alt="GTR1 (alpha=0.8)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR1_PDF_08.png" alt="GTR1 (alpha=0.8)" class="img-responsive" />
+    </div> <br />
+    <div class="twentytwenty-container">
+        <img src="images/disney/Disney-Warptest/GTR2_Vis_03.png" alt="GTR2 (alpha=0.3)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR2_PDF_03.png" alt="GTR2 (alpha=0.3)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR2_Vis_08.png" alt="GTR2 (alpha=0.8)" class="img-responsive" />
+        <img src="images/disney/Disney-Warptest/GTR2_PDF_08.png" alt="GTR2 (alpha=0.8)" class="img-responsive" />
+    </div> <br />
+  <h3> Moderate Denoising: NL-means Denoising </h3>
+    Relevant files: <br />
+    <code>
+        render.cpp <br />
+        denoise.py <br />
+    </code>
+    <br /> <br />
+
+    Non-local denoising filter performs averaging over similar pixels in the neighbourhood instead of just calculating a local mean.
+    This results in denoised outputs where edges are preseved. To implement NL-means denoising, I took reference from our
+    lecture slides [5].
+    First, I calculated and stored the variance map of the scene in <code>render.cpp</code> by using sample mean variance.
+    Then, I implemented the NL-means pipeline in the python file <code>denoise.py</code> present along with all other C++ source codes.
+    In my python code, I majorly make use of the <code>numpy</code> library for the mathematical calculations. I also use
+    <code>opencv</code> library to read the exr file and <code>scipy</code> library to perform convolution operation. I implement the
+    pseudocode present in the lecture slide and denoise two different renders of the same scene using path_mis and 128spp, and
+    path_mats and 512spp. For the paramaters, I use the values stated in the slides: \(r=10\), \(f=3\) and \(k=0.45\). The scene, the
+    variance map, and the denoised scene for both the renders are shown below.
+
+    <br /> <br />
+    <div class="twentytwenty-container">
+        <img src="images/denoise/denoiseScene_mis128.png" alt="Before Denoising (PATH MIS 128spp)" class="img-responsive" />
+        <img src="images/denoise/denoiseScene_variance_mis128.png" alt="Variance" class="img-responsive" />
+        <img src="images/denoise/denoised_mis128.png" alt="Post Denoising" class="img-responsive" />
+    </div> <br />
+
+    <div class="twentytwenty-container">
+        <img src="images/denoise/denoiseScene_mats512.png" alt="Before Denoising (Path MATS 512spp)" class="img-responsive" />
+        <img src="images/denoise/denoiseScene_variance_mats512.png" alt="Variance" class="img-responsive" />
+        <img src="images/denoise/denoised_mats512.png" alt="Post Denoising" class="img-responsive" />
+    </div> <br />
+  </div>
+</div>
+
+<div class="container contentWrapper">
+  <div class="pageContent">
+    <h2> Sayan Deb Sarkar </h2>
+    <p> I have rendered all validation related scenes with mitsuba3, except for polynomial radial distortion, which
+      to the best of my knowledge, is not there in mitsuba3 [7]. For that, I specifically used mitsuba 0.6 desktop GUI.
+      For clarification and comparison purposes, the nori comparison with mitsuba images are rendered with 256 samples per pixel
+      on my personal laptop, because of difficulty in setting up mitsuba on the euler cluster, while those 
+      standalone of nori are rendered with 1024 samples per pixel, on the euler cluster, unless stated otherwise. The 
+      corresponding integrator is always set as <code>path_mis</code> unless stated otherwise.
+    </p>
+        <h3> Advanced Camera Models </h3>
+        <p> <strong>Files Added/Modified:</strong>
+          <ul>
+            <li> <code>src/perspective.cpp</code> </li>
+            <li> <code>src/render.cpp</code> </li>
+          </ul>
+        </p>
+          <h4> Depth Of Field </h4>
+            <p>
+              To increase the realism of a scene, and to focus the viewer on specific parts of the image, I used 
+              depth of field, which is simulated using a simple thinlens camera. I modified <code>src/perspective.cpp</code>
+              to accept two camera related parameters, aperture of the lens and focal length. Depth of field is usually 
+              simulated in graphics by calculating ray intersection with the focal plane, and then modifying the ray origin 
+              as a point sampled on the lens and the direction as such that the ray passes through the point on the focal plane.
+              For my validation, I show variations of the aforementioned parameters and try to focus on two different 
+              subjects on the scene while simulatenously comparing with corresponding mitsuba renders. Starting with no 
+              depth of field effect, I show step by step how experimenting with lens radius and focal length help me focus 
+              on a desired subject at a time.
+            </p>
+            <h6 style="text-align: center;">Focal Length : 0.0, Lens Radius : 0.0 </h6>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/nori_thinlens_2.png" alt="nori" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/mitsuba_thinlens_2.png" alt="mitsuba" class="img-responsive">
+            </div> <br> <br>
+
+            <h6 style="text-align: center;">Focal Length : 4.41159, Lens Radius : 0.5 </h6>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/nori_thinlens_mitsubaref.png" alt="nori" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/mitsuba_thinlens_mitsubaref.png" alt="mitsuba" class="img-responsive">
+            </div> <br> <br>
+            
+            <h6 style="text-align: center;">Focal Length : 4.41159, Lens Radius : 1.5 </h6>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/nori_thinlens_1.png" alt="nori" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/mitsuba_thinlens_1.png" alt="mitsuba" class="img-responsive">
+            </div> <br> <br>
+
+            <h6 style="text-align: center;">Focal Length : 5.91159, Lens Radius : 0.5 </h6>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/nori_thinlens_3.png" alt="nori" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/mitsuba_thinlens_3.png" alt="mitsuba" class="img-responsive">
+            </div> <br> <br>
+
+            <h6 style="text-align: center;">Focal Length : 5.91159, Lens Radius : 1.5 </h6>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/nori_thinlens_4.png" alt="nori" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/mitsuba_thinlens_4.png" alt="mitsuba" class="img-responsive">
+            </div> <br> <br>
+          
+            <h4> Lens Distortion </h4>
+              Initially, I wanted to extend perspective camera with a naive implementation of first order radial distortion. However, in the interest of 
+              validation with mitsuba, I also ended up implementing polynomial radial distortion, both of which have been explained as follows.
+              <h5> Radial Distortion </h5>
+                Here, I followed the implementation of tensorflow to simulate quadratic radial distortion where, given a vector in 
+                homogeneous coordinates, \( (x/z, y/z, 1) \), \(r\) is defined \(r^2 = (x/z)^2 + (y/z)^2\). Following this definition, I used the 
+                simplest form of distortion function as \(f(r) = 1 + k * r^2\) with the distorted vector given as \( (f(r) * x/z, f(r) * y/z, 1)\).
+                The reference can be found in tensorflow implementation of the same function [8]. The corresponding render with variation in values of 
+                the distortion coefficient is shown below. 
+
+                <div class="twentytwenty-container">
+                  <img src="images/Advanced-Camera-Models/radial_distortion_1.png" alt="coeff = 5" class="img-responsive">
+                  <img src="images/Advanced-Camera-Models/radial_distortion_2.png" alt="coeff = 10" class="img-responsive">
+                </div> <br> <br>
+
+                <h5> Polynomial Radial Distortion </h5>
+                In the interest of proper validation of my implementation with an already avaiable renderer like mitsuba, I implemented polynomial 
+                radial distortion following their code [9]. I specified the second and fourth-order terms in a polynomial
+                model that accounts for pincushion and barrel distortion, as <code>k1</code> and <code>k2</code>. This is useful when trying to match 
+                rendered images to photographs created by a camera whose distortion is known. The corresponding comparison with mitsuba render is shown 
+                below.
+                <div class="twentytwenty-container">
+                  <img src="images/Advanced-Camera-Models/poly_radial_distortion_1.png" alt="nori : k1 = 5, k2 = 5" class="img-responsive">
+                  <img src="images/Advanced-Camera-Models/poly_radialdistortion_mitsuba_1.png" alt="mitsuba : k1 = 5, k2 = 5" class="img-responsive">
+                  <img src="images/Advanced-Camera-Models/poly_radial_distortion_2.png" alt="nori : k1 = 10, k2 = 10" class="img-responsive">
+                  <img src="images/Advanced-Camera-Models/poly_radialdistortion_mitsuba_2.png" alt="mitsuba : k1 = 10, k2 = 10" class="img-responsive">
+                </div> <br> <br>
+
+          <h4> Chromatic Aberration </h4>
+            <p>
+              Chromatic aberration, also known as color fringing, is a color distortion 
+              that creates an outline of unwanted color along the edges of objects in a photograph. It often appears when there's
+              a high contrast between light and dark objects. On activation of the effect, <code>sampleRay()</code> in camera class is called 3 times, once for 
+              each color channel and then summed for the final radiance. The amount of abberation for a given color channel is chosen as parameters 
+              specified in the scene XML file and then position is zero-centered as well as the focus point is shifted in each direction by an offset.
+              In the following images, I show comparisons of different parameters on two different scenes to understand how chromatic aberration usually 
+              affects a captured photograph.
+              
+            </p>
+            <div class="twentytwenty-container">
+              <img src="images/Advanced-Camera-Models/cbox_aberration.png" alt="cbox" class="img-responsive">
+              <img src="images/Advanced-Camera-Models/table_aberration.png " alt="table" class="img-responsive">
+            </div> <br> <br>
+        
+          <h3> Homogeneous Participating Media </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>include/nori/medium.h</code> </li>
+              <li> <code>include/nori/scene.h</code></li>
+              <li> <code>src/homogenous.cpp</code> </li>
+              <li> <code>src/volpath_mis.cpp</code> </li>
+            </ul>
+          </p>
+          <p>
+            I have implemented both kinds of media - scene-wide homogeneous medium and homogeneous medium attached to a shape, with the integrator updated 
+            to handle both scenarios without use. The medium is parameterized by absorption coefficient <code>sigma_a</code>, scattering 
+            coefficient <code>sigma_s</code> and the phase function (Henyey-Greenstein/isotropic in my implementation). Before moving onto the 
+            integrator in the next section, I added functionality for handling of sampling volumetric scattering following PBRT implementation [2]. The major steps 
+            are as follows :
+
+            <ul>
+              <li> Sampling a channel and distance along the incident ray </li>
+              <li> Computing the transmittances and sampling density </li>
+              <li> Returning weighting factor for scattering from homogeneous medium </li>
+            </ul>
+          </p>
+          
+          <p>
+            In the following images, I show comparisons of the sampled homogeneous medium scene-wide and attached to a sphere with corresponding
+            mitsuba renders, using an isotropic phase function. As can be seen, these look pretty identical. The media were rendered 
+            with a volunetric path tracer, described in the next subsection. 
+          </p>
+
+          <div class="twentytwenty-container">
+            <img src="images/Homogeneous-Medium/cbox_vol_isotropic_scenewide.png" alt="nori scenewide absorption = 0.005 scattering = 0.25" class="img-responsive">
+            <img src="images/Homogeneous-Medium/cbox_vol_mitsuba_scenewide.png" alt="mitsuba scenewide absorption = 0.005 scattering = 0.25" class="img-responsive">
+          </div> <br> <br>
+
+          <div class="twentytwenty-container">
+            <img src="images/Homogeneous-Medium/cbox_vol_isotropic_sphere.png" alt="nori sphere absorption = 1.0 scattering = 0.0" class="img-responsive">
+            <img src="images/Homogeneous-Medium/cbox_vol_mitsuba_isotropic_sphere.png" alt="mitsuba sphere absorption = 1.0 scattering = 0.0" class="img-responsive">
+            <img src="images/Homogeneous-Medium/cbox_vol_mitsuba_scattering_only.png" alt="nori sphere absorption = 0.0 scattering = 1.0" class="img-responsive">
+            <img src="images/Homogeneous-Medium/cbox_vol_mitsuba_scattering_only.png" alt="mitsuba sphere absorption = 0.0 scattering = 1.0" class="img-responsive">
+          </div> <br> <br>
+
+          <h4>Volumetric Path Tracer with Multiple Importance Sampling </h4>
+            <p>
+              I implemented a complex integrator, <code>volpath_mis</code>, which is based on <code>path_mis</code> and extends it with 
+              sampling distances in media and sampling the phase function. My implementation uses multiple importance sampling and combines sampling 
+              direct lighting with sampling the phase function. This gives us an efficient unidirectional volumetric path tracer. Unlike the PBRT 
+              implementation [2], I do not have two different mediums attached to a shape in order to keep track of how the current medium changes. Instead, 
+              I modified the integrator by using the dot product of the normal of the intersection point and the ray direction to keep track of 
+              exiting and entering medium. I implemented a function <code>rayIntersectTr()</code> to calculate medium transmittances and thus, the 
+              attenuation based on which media the ray is passing through. 
+
+            </p>
+            <p> To demonstrate validation of my implementation, I show comparison of the newly writtern volumetric path tracer with the path tracer 
+              we wrote for Programming Assignment 4. Using the same scene without a medium, I show comparisons of both below, 
+              which looks identical. In addition, in order to understand the effectiveness of importance sampling, I also show 
+              comparisons by turning off multiple importance sampling, which makes it behave like the volumetric version of 
+              <code>path_mats</code> and the original implementation.
+
+            </p>
+            <div class="twentytwenty-container">
+              <img src="images/Homogeneous-Medium/cbox_vol_mis.png" alt="vol path mis" class="img-responsive">
+              <img src="images/Homogeneous-Medium/cbox_path_mis.png" alt="path mis" class="img-responsive">
+            </div> <br> <br>
+            <div class="twentytwenty-container">
+              <img src="images/Homogeneous-Medium/cbox_volpath_isotropic_mesh_mats.png" alt="vol path mats" class="img-responsive">
+              <img src="images/Homogeneous-Medium/cbox_vol_mitsuba_isotropic_sphere.png" alt="vol path mis" class="img-responsive">
+            </div> <br> <br>
+            <p>
+              To further validate the <code>volpath_mis</code> implementation, I followed the paradigm used in assignments. I modified the 
+              <code>test-direct.xml</code> file from Progamming Assignment 4 to use the volumetric path tracer as the integrator and 
+              the <code>test-furnace.xml</code> to add a homogeneous medium with 1.0 scattering and 0.0 absorption coefficients attached to a sphere
+              for every scene. My implementation still passes all the tests as described below.
+            </p>
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapsedirectTest" role="button" aria-expanded="false" aria-controls="collapseTestMesh">
+              Toggle test-vol-direct.xml output
+            </a>
+      
+            <div class="collapse" id="collapsedirectTest">
+                <pre><object data="./tests/test_direct_vol.txt" style="width: 100%; height: 30vh"></object></pre>
+            </div> <br> <br>
+  
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapsefurnaceTest" role="button" aria-expanded="false" aria-controls="collapseTestMesh">
+              Toggle test-vol-furnace.xml output
+            </a>
+      
+            <div class="collapse" id="collapsefurnaceTest">
+                <pre><object data="./tests/test_furnace_vol.txt" style="width: 100%; height: 30vh"></object></pre>
+            </div> <br> <br>
+
+        <h3> Henyey-Greenstein Phase Function </h3>
+        <p> <strong>Files Added/Modified:</strong>
+          <ul>
+            <li> <code>include/nori/phase.h</code> </li>
+            <li> <code>src/henyeygreenstein.cpp</code> </li>
+            <li> <code>src/isotropic.cpp</code> </li>
+            <li> <code>src/warptest.cpp</code> </li>
+          </ul>
+        </p>
+
+        <p>Henyey Greenstein phase function was specifically designed to be easy to fit to measured scattering data and is parameterized by 
+          a single parameter \( g \), the asymmetry parameter, to control the light distribution. It is useful to be able to draw samples 
+          from the distribution described by phase functions like applying multiple importance sampling to computing direct lighting in participating 
+          media as well as for sampling scattered directions for indirect lighting samples in participating media. The PDF for the Henyey-Greenstein phase 
+          function is separable into \( \theta \)  and \( \phi \) components, with \(p(\phi) = \frac{1}{2\pi} \). I followed the PBRT book [2] for the 
+          implementation of this function by computing \(cos \theta \) and direction \(w_i \) for Henyey-Greenstein sample and then calculating the 
+          PDF accordingly. In the following images, I show the following results in order : 
+          <ol>
+            <li> Henyey Greenstein phase function output with g = 0 and Isotropic Phase Function alongside comparison with mitsuba </li>
+            <li> Backward and forward scattering using variation of \( g \)</li>
+            <li> Integration of Henyey-Greenstein into warptest and successfully passing all tests </li>
+          </ol>
+        </p>
+
+        <div class="twentytwenty-container">
+          <img src="images/Henyey-Greenstein/cbox_vol_hg_0_mesh.png" alt="nori Henyey Greenstein with g=0" class="img-responsive">
+          <img src="images/Henyey-Greenstein/cbox_vol_hg_0_mitsuba.png" alt="mitsuba Henyey Greenstein with g=0" class="img-responsive">
+          <img src="images/Henyey-Greenstein/cbox_vol_isotropic_mesh.png" alt="nori Isotropic" class="img-responsive">
+          <img src="images/Henyey-Greenstein/cbox_vol_isotropic_mitsuba.png" alt="mitsuba Isotropic" class="img-responsive">
+        </div> <br> <br>
+
+        <div class="twentytwenty-container">
+          <img src="images/Henyey-Greenstein/cbox_vol_hg_neg_scenewide.png" alt="strong backward scattering (g = -0.7)" class="img-responsive">
+          <img src="images/Henyey-Greenstein/cbox_vol_hg_pos_scenewide.png" alt="strong forward scattering (g = 0.7)" class="img-responsive">
+        </div> <br> <br>
+
+        <div class="twentytwenty-container">
+          <img src="images/Henyey-Greenstein/hg_1.png" alt="warptest visualisation" class="img-responsive">
+          <img src="images/Henyey-Greenstein/hg_2.png" alt="chi2 test" class="img-responsive">
+        </div> <br> <br>
+        
+        <h3> Spotlight </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>src/spotlight.cpp</code> </li>
+            </ul>
+          </p>
+          <p>
+            My spotlight implementation is based on the implementation in the PBRT book. Spotlights are defined by two angles, 
+            <code>falloffStart</code> and <code>totalWidth</code>. Objects inside the inner cone of angles, up to <code>falloffStart</code>, are 
+            fully illuminated by the light. The directions between <code>falloffStart</code> and <code>totalWidth</code> are a transition zone that
+            ramps down from full illumination to no illumination, such that points outside the <code>totalWidth</code> 
+            cone aren't illuminated at all. However, for the purpose of validation, I changed the calculation of <code>cutOff</code> 
+            value according to mitsuba implementation [7]. As can be seen in the images below, I show comparisons by putting two objects in the 
+            original cbox scene to demonstrate the comparison of nori spotlight implementation with mitsuba. 
+          </p>
+          <div class="twentytwenty-container">
+            <img src="images/Spotlight/nori_cow_spotlight.png" alt="nori cow" class="img-responsive">
+            <img src="images/Spotlight/mitsuba_cow_spotlight.png" alt="mitsuba cow" class="img-responsive">
+            <img src="images/Spotlight/nori_toothless_spotlight.png" alt="nori head" class="img-responsive">
+            <img src="images/Spotlight/mitsuba_toothless_spotlight.png" alt="mitsuba head" class="img-responsive">
+          </div> <br> <br>
+        
+        <h3> Perlin Noise </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>src/perlin.cpp</code> </li>
+            </ul>
+          </p>
+          <p>
+            Perlin Noise is essentially a seeded random number generator, it takes an integer as a 
+            parameter and returns a random number based on that parameter. I followed the referenced
+            implementation for my understanding.  I used <code>persistence</code> and <code> octaves </code> to control 
+            the noise texture [10]. Noise with a lot of high frequency as having a low persistence and octave is 
+            each successive noise function added, just like in classical music. I also used cosine interpolation for smoothing, which 
+            gives better texture at a slight loss of operating speed. Below I show perlin textures on various shapes, namely, a plane and 
+            the camel head alongside rendering just perlin noise to demonstrate the validation of my approach.
+
+          </p>
+          <div class="twentytwenty-container">
+            <img src="images/Perlin-Texture/perlin_plane.png" alt="perlin noise on plane" class="img-responsive">
+            <img src="images/Perlin-Texture/perlin_texture.png" alt="perlin noise" class="img-responsive">
+            <img src="images/Perlin-Texture/perlin_texture_camelhead.png" alt="camelhead perlin + checkeboard texture" class="img-responsive">
+          </div> <br> <br>
+        
+        <h3> Textured Area Emitters </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>src/arealight.cpp</code> </li>
+              <li> <code>include/nori/emitter.h</code></li>
+            </ul>
+          </p>
+
+          <p>
+            Textured Area Emitters was quite interesting to implement, since initially I was unable to understand how to make an emitter have radiance based 
+            on texture, however, it was quite simple at the end. I added <code>uv</code> coordinate values to <code>EmitterQueryRecord</code> such that when
+            evaluating the emitter, I can query the texture value corresponding to the given point and return that as the radiance. I adapted the integrators to
+            follow this approach, meaning, I add the <code>uv</code> coordinate of the intersection point of a ray with the scene to be able to look up 
+            during emitter evaluation. Below, I show a  perlin textured emitter as well as checkeboard textured emitter rendered using nori 
+            and mitsuba, they look almost same, the offset is due to the handling of the texture in the two frameworks. 
+          </p>
+
+          <div class="twentytwenty-container">
+            <img src="images/Textured-Area-Emitter/textured_area_emitter_checkerboard.png" alt="nori checkeboard" class="img-responsive">
+            <img src="images/Textured-Area-Emitter/mitsuba_textured_area_emitter_checkerboard.png" alt="mitsuba checkeboard" class="img-responsive">
+            <img src="images/Textured-Area-Emitter/textured_area_emitter_perlin.png" alt="nori perlin noise" class="img-responsive">
+          </div> <br> <br>
+          
+        <h3> Final Gather For Photon Mapping </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>src/photonmapper_final_gather.cpp</code> </li>
+            </ul>
+          </p>
+
+          <p>
+            In final gather, the hemisphere above the intersection point is sampled by shooting many rays and computing the radiance at the 
+            intersection points of the sampled rays with a diffuse surface. I sampled rays using cosine hemispherical sampling based on the incident 
+            ray direction. My implementation is based on Christensen's work [11]. I show 
+            a direct comparison with the basic photon mapper to demonstrate how the indirect illumination accumulated using final gather helps 
+            reduce blotches.
+          </p>
+
+          <div class="twentytwenty-container">
+            <img src="images/Final-Gather/cbox_pmap_final_gather.png" alt="final gather" class="img-responsive">
+            <img src="images/Final-Gather/cbox_pmap.png" alt="basic version for photon mapping" class="img-responsive">
+          </div> <br> <br>
+        <h3> Object Instancing </h3>
+         <p>
+          Instancing is a method of showing the same object mulitple times in the scene, without copying the object in the memory.
+          Object instancing was a very tricky feature to implement which I was unable to generate results for However, I'll describe my approach. The 
+          initial idea was to separate the transformations of a shape from the underlying mesh and then create multiple versions, ie, multiple transformations 
+          of the same shape in BVH. However, after deliberation and understanding using the PBRT textbook, I thought of this approach : create an
+          <code>Instance</code> class to hold a pointer to another primitive, the one I would instance. The <code>Instance</code> class conceptually 
+          transforms the primitive but in reality, cannot modify the primitive. Instead, the total transformation <tt>T</tt> is stored and applied during 
+          ray intersection. First, the inverse transformation would be applied to the ray and then the bounding box of the BVH node would be modified. 
+          This was my idea for the implementation, however, I was unable to implement it to full clarity because I did not understand how to get access
+          to the transform matrix of the scene within the <code>bvh</code> class.
+         </p>
+      
+        <h3> Rendering on Euler Cluster </h3>
+          <p> <strong>Files Added/Modified:</strong>
+            <ul>
+              <li> <code>src/main_euler.cpp</code> </li>
+            </ul>
+          </p>
+          <p>
+            To be able to render on Euler, I essentially changed <code>main.cpp</code> to not use GUI. I renamed the file to <code>main_euler.cpp</code>
+            for this submission. For validation, I show comparison of the rendered images using Euler and my personal laptop. 
+            I have also used the text output of the rendering, to show that the same implementation on 
+            euler took 12.0 seconds compared to 2.3 minutes on my system. 
+          <div class="twentytwenty-container">
+            <img src="images/Euler/cbox_path_mats.png" alt="personal system cbox path mats" class="img-responsive">
+            <img src="images/Euler/cbox_path_mats_euler.png" alt="euler cluster cbox path mats" class="img-responsive">
+          </div> <br> <br>
+
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseEuler" role="button" aria-expanded="false" aria-controls="collapseTestMesh">
+            Toggle Euler rendering output
+          </a>
+    
+          <div class="collapse" id="collapseEuler">
+              <pre><object data="./tests/cbox_path_mats_euler.txt" style="width: 100%; height: 30vh"></object></pre>
+          </div> <br> <br>
+
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseSystem" role="button" aria-expanded="false" aria-controls="collapseTestMesh">
+            Toggle System output
+          </a>
+    
+          <div class="collapse" id="collapseSystem">
+              <pre><object data="./tests/cbox_path_mats.txt" style="width: 100%; height: 30vh"></object></pre>
+          </div> <br> <br>
+      <h2> Final Scene </h2>
+        <p> The final image was modeled using blender and was rendered on the Euler cluster at 1920x1080 resolution
+          using 4096 samples per pixel, the time taken was 40 minutes.
+        </p>
+        <div class="twentytwenty-container">
+          <img src="images/final_scene.png" alt="rendered image" class="img-responsive">
+        </div> <br> <br>
+          
+      <h3> References </h3>
+      <ol>
+        <li> 
+          Polygonal Meshes and Texture Mapping Lecture Slides, <a href="https://moodle-app2.let.ethz.ch/pluginfile.php/1422865/mod_resource/content/3/03-4a-meshes-parametrization-textures.pdf">
+            Link
+          </a>
+        </li>
+        <li>
+          Pharr, Matt, Jakob, Wenzel and Humphreys, Greg, <em> Physically Based Rendering, Second Edition: From Theory To Implementation</em>,
+            Morgan Kaufmann Publishers Inc., 2010. <a href="https://pbrt.org/">Online version 3</a>
+        </li> 
+        <li>
+          Claude Knaus and Matthias Zwicker. 2011. Progressive photon mapping: A probabilistic approach. ACM Trans. Graph. 30, 3, Article 25 (May 2011), 13 pages. 
+          <a href="https://doi.org/10.1145/1966394.1966404">Paper</a>
+        </li>
+        <li>
+          Physically Based Shading at Disney : <a href="https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf">
+            Link
+          </a>
+        </li>
+        <li>
+          Image Based Denoising Lecture slides, <a href="https://moodle-app2.let.ethz.ch/pluginfile.php/1463410/mod_resource/content/1/denoising-I-and-nn.pdf">
+            Link
+          </a>
+        </li>
+        <li>Humphreys, Grigori Robert and Matt Phare. “Monte Carlo Rendering with Natural Illumination.” (2012)</li>
+        <li>
+          Mitsuba renderer, <a href="https://github.com/mitsuba-renderer">Github Repo</a>
+        </li>
+        <li>
+          Tensorflow Graphics : <a href="https://github.com/tensorflow/graphics/blob/master/tensorflow_graphics/rendering/camera/quadratic_radial_distortion.py">
+            Github Repo
+          </a>
+        </li>
+        <li>Mitsuba Documentation : 
+          <a href="https://www.mitsuba-renderer.org/releases/current/documentation.pdf">Release Docs </a>
+        </li>
+        <li>
+          Perlin Noise Generator Article By Hugo Elias : 
+          <a href="https://web.archive.org/web/20160530124230/http://freespace.virgin.net/hugo.elias/models/m_perlin.htm">
+            Article on Perlin Noise</a>
+        </li>
+        
+        <li>
+          Per H. Christensen, Faster Photon Map Global Illumination, Journal of Graphic Tools, ACM 1999 :   
+          <a href="https://www.seanet.com/~myandper/jgt99.pdf">Paper</a>
+        </li>
+        
+      </ol>
+  </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="/js/offcanvas.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>
