@@ -8,6 +8,6 @@ and project instructions can be viewed [here](https://cgl.ethz.ch/teaching/cg22/
 <br> <br>
 Project Report: https://ankitaghosh9.github.io/ETH-computer-graphics-project/
 <br> <br>
-Final Scene: **MAN ON MARS**
+Final Scene: **Man on Mars**
 <br> <br>
 ![Final Render](https://github.com/ankitaghosh9/ETH-computer-graphics-project/blob/main/images/final_scene.png)
