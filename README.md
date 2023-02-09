@@ -8,6 +8,6 @@ and project instructions can be viewed [here](https://cgl.ethz.ch/teaching/cg22/
 is shown below.
 <br>
 <br>
-Final scene: <font size="15"> **Man on Mars** </font>
+Final scene: <span style="font-family:Papyrus; font-size:4em;"> **Man on Mars** </span>
 <br> <br>
 ![Final Render](https://github.com/ankitaghosh9/ETH-computer-graphics-project/blob/main/images/final_scene.png)
